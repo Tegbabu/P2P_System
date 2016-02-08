@@ -1,0 +1,48 @@
+we fragmented the database horizontally and replicated the fragmented database in two other database servers. 
+In a way file above a size of 100MB will be stored in database server 1 and 3 and those less than 100MB stored in database server 2 and 4
+
+
+The client side have a user interface to do the insert and search oprations 
+The cleint.java file should be modified so that the attribute values for DBServer1, DBServer2, DBServer3, DBServer4 should have a value of the ipadress that they are located in.
+we make all the ipadress "localhost" for testing purpose with different ports.
+
+cleint.java
+public class Client {
+
+    private String dbServer1 = "localhost";
+    private String dbServer2 = "localhost";
+    private String dbServer3 = "localhost";
+    private String dbServer4 = "localhost";
+
+On the server side we have four server each responsible to store to the database and also retrive data.
+we use netbeans to develope the application with sql by using java to sql connector so for testing purpose you need to have netbeans and the library to connect it to the sql database and the sql database.
+we have attached the table by a name file_table.grab so you just need to recreate the table from this grabed structure
+
+since it is fragmented horizontally all the database have the same kind of structure
+the last thing you need to modify is DBConnection.java file in each server you need to make sure that JDBC_Driver , DB_URL userName and pwd links the table on your Database. Database name doesnt affect the system as long as the link is coorect
+
+
+public class DBConnection {
+    
+    static final String Jdbc_Driver = "com.mysql.jdbc.Driver";
+    static final String Db_Url = "jdbc:mysql://localhost:3306/db1?zeroDateTimeBehavior=convertToNull";
+    static final String userName = "root";
+    static final String pwd = "eyoel";
+    Connection con;
+    Statement st;
+
+we have put all the five projects on the ziped file one client side app and 4 database servers with the grabed table
+
+finally all you need to do is start each server named DBserver1.java and so on for all four sever the run the CleintSide project
+
+Group members
+
+	1.Biruk Taye              ENR/3489/04
+	2.Duresa Dejene           ENR/3726/04
+	3.Eyoel Fikadu		ENR/1739/04
+	4.Hanna Mekuria           ENR/1801/04
+	5.Mikael Gobena 		ENR/2611/04
+	6.Selam Mulugeta          ENR/3805/04
+	7.Tegbabu Solomon  	ENR/2002/04  	
+	8.Wondifraw Teffera	ENR/2179/04
+	  
