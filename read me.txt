@@ -1,4 +1,17 @@
-we fragmented the database horizontally and replicated the fragmented database in two other database servers. 
+#P2P_System
+Simple Peer to Peer File sharing system
+
+The project Contains
+1. ClientSide
+2. DBServer1
+3. DBServer2
+4. DBServer3
+5. DBServer4
+6. distributed_db.sql
+7. file_table.grab
+
+
+We fragmented the database horizontally and replicated the fragmented database in two other database servers. 
 In a way file above a size of 100MB will be stored in database server 1 and 3 and those less than 100MB stored in database server 2 and 4
 
 
@@ -16,8 +29,10 @@ public class Client {
 
 On the server side we have four server each responsible to store to the database and also retrive data.
 we use netbeans to develope the application with sql by using java to sql connector so for testing purpose you need to have netbeans and the library to connect it to the sql database and the sql database.
+that is mysql connector to database
 we have attached the table by a name file_table.grab so you just need to recreate the table from this grabed structure
 
+We have also attached the dumped database file disrtibuted_db.sql if needed to create new database.
 since it is fragmented horizontally all the database have the same kind of structure
 the last thing you need to modify is DBConnection.java file in each server you need to make sure that JDBC_Driver , DB_URL userName and pwd links the table on your Database. Database name doesnt affect the system as long as the link is coorect
 
@@ -33,16 +48,16 @@ public class DBConnection {
 
 we have put all the five projects on the ziped file one client side app and 4 database servers with the grabed table
 
-finally all you need to do is start each server named DBserver1.java and so on for all four sever the run the CleintSide project
+finally all you need to do is start each server named DBserver1.java and so on for all four server then run the CleintSide project
 
 Group members
 
 	1.Biruk Taye              ENR/3489/04
 	2.Duresa Dejene           ENR/3726/04
-	3.Eyoel Fikadu		ENR/1739/04
+	3.Eyoel Fikadu		  ENR/1739/04
 	4.Hanna Mekuria           ENR/1801/04
-	5.Mikael Gobena 		ENR/2611/04
+	5.Mikael Gobena 	  ENR/2611/04
 	6.Selam Mulugeta          ENR/3805/04
-	7.Tegbabu Solomon  	ENR/2002/04  	
-	8.Wondifraw Teffera	ENR/2179/04
+	7.Tegbabu Solomon  	  ENR/2002/04  	
+	8.Wondifraw Teffera	  ENR/2179/04
 	  
